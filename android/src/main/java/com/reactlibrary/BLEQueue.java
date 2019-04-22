@@ -101,7 +101,9 @@ public class BLEQueue {
     };
 
     private void emmitMsg(String eventName, Object msg) {
-        mEventEmitter.emit(eventName, msg);
+        if (mEventEmitter != null) {
+            mEventEmitter.emit(eventName, msg);
+        }
     }
 
     private class BLEConfigOp implements Runnable {
