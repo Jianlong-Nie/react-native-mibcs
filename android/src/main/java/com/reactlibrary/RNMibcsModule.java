@@ -189,6 +189,9 @@ public class RNMibcsModule extends ReactContextBaseJavaModule implements IReceiv
       event.putBoolean("isWeightRemove", isWeightRemove);
       event.putInt("imp", imp);
       event.putBoolean("isImpStable", isImpStable);
+      if (mDeviceEventEmitter == null) {
+        mDeviceEventEmitter = mContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class);
+      }
       mDeviceEventEmitter.emit("BLEUpdate", event);
       result= (int) weight;
     }
