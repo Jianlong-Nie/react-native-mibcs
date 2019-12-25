@@ -63,7 +63,7 @@ public class BLEQueue {
                 BluetoothDevice device = result.getDevice();
 
                 Log.d(TAG, "device acquired, name:"+device.getName()+", MAC:"+device.getAddress());
-                if ("MIBCS".equals(device.getName())){
+                if ("MIBCS".equals(device.getName()) || "MIBFS".equals(device.getName())){
                     if(mDevice==null)mDevice = device;
                 }else{
                     return;
